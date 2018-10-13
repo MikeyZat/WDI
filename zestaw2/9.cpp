@@ -5,6 +5,9 @@ int sumy[17];
 int tab[152];
 bool sitko[5000];
 int main(){
+    int sumy[17]={};
+    int tab[152]={};
+    bool sitko[5000]={false};
     int n;
     sumy[0]=1;
     sumy[1]=2;
