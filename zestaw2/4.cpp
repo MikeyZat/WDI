@@ -8,8 +8,11 @@ int main()
     cin >> n;
     int suma=0;
     for(int i=1;i<=n;i++)
-    {
+    {   
+        //tworzę kopie aktualnego i
         int liczba=i;
+     
+        // po kolei wywalam wszystkie 2,3,5 z rozkładu
         while(liczba%2==0)
         {
             liczba=liczba/2;
@@ -22,6 +25,7 @@ int main()
         {
             liczba=liczba/5;
         }
+     
         if(liczba==1)
         {
             suma++;
