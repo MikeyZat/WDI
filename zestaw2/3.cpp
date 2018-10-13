@@ -2,6 +2,7 @@
 #include<string>
 using namespace std;
 
+//sprawdza czy Palindrom ale musi dostać STRINGA
 bool czyPalindrom(string liczba){
     int len=liczba.size();
     for(int i=0;i<len/2;i++){
@@ -12,6 +13,7 @@ bool czyPalindrom(string liczba){
     return true;
 }
 
+//zamienia int na String
 string toString(int liczba){
     string liczbaString="";
     while(liczba>0){
@@ -20,7 +22,7 @@ string toString(int liczba){
     }
     return liczbaString;
 }
-
+//Zamienia z dziesiętnego na binarny
 string bin(int n){
     string liczba="";
     while(n>0){
