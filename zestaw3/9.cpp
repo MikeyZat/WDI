@@ -30,6 +30,9 @@ int main()
                 }
                 dzielnik++;
             }
+            if(t[i]>1 && i+t[i]<n)
+                flagi[i+t[i]]=true;
+                
         }
     }
     
