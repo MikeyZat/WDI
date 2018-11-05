@@ -3,6 +3,7 @@
 using namespace std;
 const int N = 5;
 
+//if number has any even digits, returns false
 bool onlyOdd(int a){
     while(a>0){
         if (a%2==0)
@@ -11,18 +12,19 @@ bool onlyOdd(int a){
     return true;
 }
 
-bool function(int tab[N][N]){
-    bool flag = true;
+bool function(int tab[N][N]){   
+    bool flag = true;                   // I assume that every row has such a number
     for(int i=0;i<N;i++)
         if(flag){
-        flag=false;
+        flag=false;                     // Let's suppose this row doesnt have such a number
         for(int j=0;j<N;j++){
             if(onlyOdd(tab[i][j])){
-                flag = true;
+                flag = true;            // Surprise : it has! Now, let's go on
                 break;
             }
         }
     }else{
+            //we found a row which doesnt have such a number
         return false;
     }
     return true;
