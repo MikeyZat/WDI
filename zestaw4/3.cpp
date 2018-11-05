@@ -2,7 +2,6 @@
 
 using namespace std;
 const int N = 5;
-
 bool hasEvenDigit(int a){
     while(a>0){
         if (a%2==0)
@@ -11,20 +10,22 @@ bool hasEvenDigit(int a){
     return false;
 }
 
-bool function(int tab[N][N]){
-    bool flag = false;
+bool function(int tab[N][N]){    
+    bool flag = false;              //I assume that such a row DOESNT exit
     for(int i=0;i<N;i++)
         if(!flag){
-            flag=true;
+            flag=true;               //now lets suppose it exists
         for(int j=0;j<N;j++){
             if(!hasEvenDigit(tab[i][j])){
-                flag = false;
+                flag = false;        //oh no, it isnt it! l=Lets go on
                 break;
             }
         }
     }else{
+        // We found such a row
         return true;
     }
+    // all rows checked and still nothing :(
     return false;
 }
 
