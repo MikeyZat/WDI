@@ -5,7 +5,7 @@ using namespace std;
 
 const int N=15;
 
-int podciag(int t[N]){
+int substring(int t[N]){
     int max_dl=0;
     for(int i=0;i<N;i++){               //checking all 'starting points'
         int j=N-1;                      //now going from last to first
@@ -30,6 +30,6 @@ int main()
 {
     int t[N]; for(int i=0;i<N;i++)cin>>t[i];
     
-    cout<<podciag(t);
+    cout<<substring(t);
  
 }
