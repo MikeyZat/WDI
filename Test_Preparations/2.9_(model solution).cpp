@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-bool spojnaSuma(int n){               //sum of 1 + 1 + 2 + 3 + 5 + 8...+ fib(n) = fib(n+2) -1  (easily provable by induction)
+bool consistentSum(int n){               //sum of 1 + 1 + 2 + 3 + 5 + 8...+ fib(n) = fib(n+2) -1  (easily provable by induction)
     int end=1;                        //so if we need a substring like fib(m) + fib(m+1) +... +fib(n) we can just do fib(n+2)-fib(m+2)
     int endHelp=1;                    //To find a substring which sums up to 'n' we use a 'caterpillar algorithm' (I call it like that)
     int start=2;  
@@ -25,7 +25,7 @@ int main(){
     int n;
     cin>>n;
     n++;
-    while(spojnaSuma(n)){           //looking for first number after N which doesnt have such a substring
+    while(consistentSum(n)){           //looking for first number after N which doesnt have such a substring
         n++;}
     cout<<n;
 }
