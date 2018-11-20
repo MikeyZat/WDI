@@ -8,11 +8,11 @@ bool canBeWeighted(int current, const int weight, int idx, int tab[N]){
         return true;
     if(idx >= N)
         return false;
-    if(canBeWeighted(current+tab[idx], weight, idx+1, tab) ||canBeWeighted(current-tab[idx],weight,idx+1,tab)){
+    if(canBeWeighted(current+tab[idx], weight, idx+1, tab) ||canBeWeighted(current-tab[idx],weight,idx+1,tab)){ //we take weight and put on the first on the second WEIGHT
         cout<<tab[idx]<<" ";
         return true;
         }else{
-            return canBeWeighted(current, weight, idx+1, tab);   
+            return canBeWeighted(current, weight, idx+1, tab);          // we ommit this weight
         }
 }
 int main()
