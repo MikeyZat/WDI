@@ -1,36 +1,14 @@
-// Example program
 #include <iostream>
 #include <string>
 using namespace std;
-const int N=10;
+const int N=5;
 
-bool canBeWeighted(int n,int start, int t[N]){
-    int situations=3;                  // we will have 3 options on every fuction start
-    for(int i=start;i<N;i++){
-        if(t[i]==n){
-            situations=1;
-            break;
-        }
-        if(t[i]<n){
-            situations=2;
-        }
-    }
-    if(situations==3)                   // all weights are heavier than n  =>   n cant be weighted
-        return false;
-    if(situations==1)                   // we have weight == n  =>   n can be weighted
+bool canBeWeighted(int current, const int weight, int idx, int tab[N]){    
+    if(current == weight)
         return true;
-    if(situations==2){                  // we dont have weight == n but we have weights<n =>   we put them on a WEIGHT and see if then we can find a combination that will sum up to n
-        bool b=false;
-        for(int i=start;i<N;i++){
-            if(t[i]<n){
-                if(canBeWeighted(n-t[i],i+1,t)){            //putting a weight on WEIGHT and see if combination including this weight can sum up to n;
-                    b=true;
-                    break;
-                }
-            }
-        }
-        return b;
-    }
+    if(idx >= N)
+        return false;
+    return canBeWeighted(current+tab[idx], weight, idx+1, tab) || canBeWeighted(current, weight, idx+1, tab);
 }
 int main()
 {
@@ -40,5 +18,5 @@ int main()
     }
     int n;
     cin>>n;
-    cout<<canBeWeighted(n,0,t);
+    cout<<endl<<canBeWeighted(0,n,0,t);
 }
