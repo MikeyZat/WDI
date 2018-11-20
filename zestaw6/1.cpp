@@ -4,11 +4,11 @@ using namespace std;
 const int N=5;
 
 bool canBeWeighted(int current, const int weight, int idx, int tab[N]){    
-    if(current == weight)
+    if(current == weight)           //we found a subset
         return true;
-    if(idx >= N)
+    if(idx >= N)                    //subset doesnt sum up to weight
         return false;
-    return canBeWeighted(current+tab[idx], weight, idx+1, tab) || canBeWeighted(current, weight, idx+1, tab);
+    return canBeWeighted(current+tab[idx], weight, idx+1, tab) || canBeWeighted(current, weight, idx+1, tab);   //we take this weight or we ommit it
 }
 int main()
 {
