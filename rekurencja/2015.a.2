@@ -1,0 +1,48 @@
+#include <cmath>
+#include <iostream>
+#include <string>
+using namespace std;
+const int N=5;
+
+struct pol{
+    int w;
+    int k;
+};
+
+void liczWsp(int t[N][N], pol wieze[2]){
+    int sw[N];
+    int sk[N]; for(int i=0;i<N;i++)sk[i]=sw[i]=0;
+    int maxw=-10*N,maxk=-10*N;
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            sw[i]+=t[i][j];
+            sk[j]+=t[i][j];
+        }
+    }
+    for(int j=0;j<2;j++){
+        for(int i=0;i<N;i++){
+            if(sw[i]>maxw){
+                wieze[j].w=i;
+                maxw=sw[i];
+            }
+            if(sk[i]>maxk){
+                wieze[j].k=i;
+                maxk=sk[i];
+            }
+        }
+        sw[wieze[j].w]=0;
+        sk[wieze[j].k]=0;
+    }
+    
+}
+int main()
+{
+    int t[N][N];
+    for(int i=0;i<N;i++)
+        for(int j=0;j<N;j++)
+            cin>>t[i][j];
+    pol wieze[2];
+    liczWsp(t,wieze);
+    cout<<wieze[0].w<<" "<<wieze[0].k<<endl;
+    cout<<wieze[1].w<<" "<<wieze[1].k<<endl;
+}
