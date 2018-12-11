@@ -1,0 +1,35 @@
+#include <cmath>
+#include <iostream>
+#include <string>
+const int N=100;
+struct krol{
+    int w;
+    int k;
+    bool zajete;
+};
+int main()
+{
+    krol krole[N];
+    for(int i=0;i<N;i++){
+        krol k;
+        k.w=k.k=0;
+        k.zajete=false;
+        krole[i]=k;
+    }
+    
+    int x,y;
+    for(int i=0;i<N;i++){
+        cin>>x>>y;
+        int odl=max(abs(x-101),(y-101));
+        if(krole[odl].zajete){
+            cout<<krole[odl].w<<" "<<krole[odl].k<<" "<<x<<" "<<y;
+            return;
+        }
+        krol nowyKrol;
+        nowyKrol.w=x;
+        nowyKrol.k=y;
+        nowyKrol.zajete=true;
+        krole[odl]=nowyKrol;
+    }
+    cout<<"brak kroli o takiej samej odl";        
+}
